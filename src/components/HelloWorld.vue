@@ -206,6 +206,15 @@ export default {
     xhr.send({ time: '2019' }) //send方法必须接收至少一个参数
     console.log(xhr.status)
     console.log(0x1)
+
+    //*************************浅克隆
+    //直接用等号来进行复制会有对象引用的问题，
+    let scores = [12, 5, 8, 130, 44]
+    //用...浅拷贝
+    let arrs = [12, 5, 8, 130, 444]
+    let [...spread] = arrs
+    arrs[1] = 66
+    console.log(spread) //  12 5 8 130 444
   },
   watch: {
     person: function() {
