@@ -82,12 +82,18 @@
           <p v-if="show">hello</p>
         </transition>
       </li>
+      <li>
+        <string1></string1>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+import string1 from './string'
+
 export default {
+  components:{string1},
   name: 'HelloWorld',
   data() {
     return {
