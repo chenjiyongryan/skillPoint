@@ -28,14 +28,16 @@ export default {
     }
     var myFunc = makeFunc();
     myFunc(); //myFunc 是执行 makeFunc 时创建的 displayName 函数实例的引用
-    //另一个更有意思的闭包例子
+    // 另一个更有意思的闭包例子
     function makeAdder(x) {
       return function(y) {
-        return x + y;
+        return x * y;
       };
     }
-    let add = makeAdder(4);
-    console.log(add(4));
+    let add1 = makeAdder(2);
+    let add2 = makeAdder(10);
+    console.log(add1(3)); //6
+    console.log(add2(10));//100
     //闭包小例子
     this.size12 = this.makeSizer(12);
     this.size13 = this.makeSizer(13);
