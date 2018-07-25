@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <title>closure</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>this is H1 tag</h1>
+    <h2>this is H2 tag</h2>
+    <p>
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures">documents on Javascript MDN</a>
+    </p>
+    <div>
+        <p>
+            <input value="size13" onclick="changeSize13()" type="button">
+        </p>
+        <p>
+            <input value="size14" onclick="changeSize14()" type="button">
+        </p>
+        <p>
+            <input value="size15" onclick="changeSize15()" type="button">
+        </p>
+    </div>
+    <script>
+        //******************************闭包 */
+        function makeFunc() {
+            var name = "Mozilla";
+            function displayName() {
+                console.log(name);
+            }
+            return displayName; //直接把函数体return出去了
+        }
+        var myFunc = makeFunc();
+        myFunc(); //myFunc 是执行 makeFunc 时创建的 displayName 函数实例的引用
+
+        //****************************** 另一个更有意思的闭包例子
+        function makeAdder(x) {
+            return function (y) {
+                return x * y;
+            };
+        }
+        let add1 = makeAdder(2);
+        let add2 = makeAdder(10);
+        console.log(add1(3)); //6
+        console.log(add2(10));//100
+
+        //******************************实用的闭包小例子
+        function makeSizer(size) {
+            return function () {
+                document.body.style.fontSize = size + 'px';
+            }
+        }
+        var changeSize13 = makeSizer(13)
+        var changeSize14 = makeSizer(14)
+        var changeSize15 = makeSizer(15)
+
+        //******************************用闭包模拟私有方法
+        var Counter = function () {
+            let privateNum = 0
+            function calc(a) {
+                privateNum += a
+            }
+            return {
+                plus: function () {
+                    calc(1)
+                },
+                reduce: function () {
+                    calc(-1)
+                },
+                value: function () {
+                    return privateNum
+                },
+            }
+        };
+        /*赋给变量以后 coun1 和 coun2 都是格子独立的。每个闭包都是引用自己词法作用域内的变量 privateNum 。
+        也就是两个词法作用域，互不影响，可能和引用*/
+        var coun1 = Counter()
+        var coun2 = Counter() 
+
+        console.log(Counter().value()); /* 0 */
+
+        coun1.plus();
+        coun1.plus()
+        console.log(coun1.value())  /* 2 */
+
+        coun2.reduce() 
+        console.log(coun2.value()); /* -1 */
+        
+
+    </script>
+</body>
+
+</html>

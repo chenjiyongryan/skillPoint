@@ -18,31 +18,7 @@ export default {
     };
   },
   mounted() {
-    //******************************闭包 */
-    function makeFunc() {
-      var name = "Mozilla";
-      function displayName() {
-        console.log(name);
-      }
-      return displayName; //直接把函数体return出去了
-    }
-    var myFunc = makeFunc();
-    myFunc(); //myFunc 是执行 makeFunc 时创建的 displayName 函数实例的引用
-    // 另一个更有意思的闭包例子
-    function makeAdder(x) {
-      return function(y) {
-        return x * y;
-      };
-    }
-    let add1 = makeAdder(2);
-    let add2 = makeAdder(10);
-    console.log(add1(3)); //6
-    console.log(add2(10));//100
-    //闭包小例子
-    this.size12 = this.makeSizer(12);
-    this.size13 = this.makeSizer(13);
-    this.size14 = this.makeSizer(14);
-
+    
     console.log(this.size14);
     //******************************词法作用域 */
     function foo(str) {
