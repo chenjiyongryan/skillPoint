@@ -86,7 +86,7 @@
                 },
             }
         };
-        /*赋给变量以后 coun1 和 coun2 都是格子独立的。每个闭包都是引用自己词法作用域内的变量 privateNum 。
+        /*赋给变量以后 coun1 和 coun2 都是各自独立的。每个闭包都是引用自己词法作用域内的变量 privateNum 。
         也就是两个词法作用域，互不影响，可能和引用*/
         var coun1 = Counter()
         var coun2 = Counter() 
