@@ -211,7 +211,7 @@ export default {
     //*************************forEach()方法
     const iPhones = [function() {}, function() {}, function() {}, function() {}]
     iPhones.forEach((a, b, c) => {
-      //a数组里的每一项 b下标 c原数组本身
+      //a数组里的每一项 b下标 c原数组本身  remember soap..soap..soap 0.0
       a()
     })
 
