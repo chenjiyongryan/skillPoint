@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <title>array</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>this is H1 tag</h1>
+    <div>
+        <p>array </p>
+    </div>
+    <script>
+        //*******************替换某一段的数组。会改变原始数组，
+        //arr.fill(value[, start[, end]])
+        var arr1 = [1, 2, 3, 4, 5, 6];
+        arr1.fill('a', 1, 3)
+        console.log(arr1) //1 a a 4 5 6 
+
+        //*******************数组排序,默认按照unicode排序，可以传回调函数按照自己要求排序。会改变原始数组
+        var arr2 = [3, 4, 2, 65, 34, 6, 8, 34]
+        console.log(arr2.sort(function (a, b) { return a - b })) //2, 3, 4, 6, 8, 34, 34, 65
+
+        //*************************filter过滤器
+        //filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
+        const ages = [32, 33, 16, 40]
+        const newages = ages.filter((a, b, c) => {
+            //a数组里的每一项 b下标 c原数组本身
+            return a > 17
+        })
+        console.log(newages)
+        //*************************forEach()方法
+        const iPhones = [function () { }, function () { }, function () { }, function () { }]
+        iPhones.forEach((a, b, c) => {
+            //a数组里的每一项 b下标 c原数组本身  remember soap..soap..soap 0.0
+            a()
+        })
+
+        //*************************map操作数组方法
+        var data = [1, 2, 3, 4]
+        let newarr = data.map(item => item * item)
+        console.log(newarr) //1 4 9 16
+
+        //*************************some 和 every方法 ——> 都是JS中数组的迭代方法,返回布尔值
+        //every()是对数组中每一项运行给定函数，如果该函数对（每一项）返回true,则返回true。
+        //some()是对数组中每一项运行给定函数，如果该函数对（任一项）返回true，则返回true。
+        const nums = [1, 2, 3, 4, 5, 6]
+        const isY = nums.some((item, idx, arr) => {
+            return item === 6 //相当于是如果有其中一项===6就返回true
+        })
+        const isN = nums.every((item, idx, arr) => {
+            return item > 0 //相当于是所有item项逗大于0就返回true
+        })
+        console.log(isY, isN) //true true
+
+        //*************************通过删除现有元素和/或添加新元素来更改一个数组的内容。会改变原始数组,会返回一个数组，里面包含背减掉的元素
+        //语法array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+        var arr3 = ['jiyong', 'hourui', 'laosan', 'erge', 'wangxiongwei',]
+        arr3.splice(2, 0, ...['zhangsan', 'lisi', 'wanger'])
+        console.log(arr3)
+        //*************************slice()提取数组里的元素，返回一个数组，里面是是提取的元素（浅拷贝）。不会修改原始数组
+        //语法array.slice(begin, end);
+        var fruits = ['Banana', 'Orange', 'Lemon', 'Apple', 'Mango'];
+        console.log(fruits.slice(1, 3))//['Orange', 'Lemon']
+
+        //*************************array.shift() 删除数组的第一个元素，返回被删除的元素，会改变原始数组
+        var arr4 = ['a','b','c','d','e','f','g']
+        console.log(arr4.shift())        
+    </script>
+</body>
+
+</html>
