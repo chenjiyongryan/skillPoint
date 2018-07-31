@@ -1,0 +1,73 @@
+<html>
+
+<head>
+    <title>prototype</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>this is H1 tag</h1>
+    <h2>this is H2 tag</h2>
+    <p>
+    </p>
+    <div>
+        <p>
+            prototype
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </div>
+    <script>
+        //******************************原型
+        function doSomething() { //  构造函数
+            this.a = 'a' //为共有的属性
+        }
+        doSomething.prototype.foo = 'bar'; //构造函数原型下的属性
+        doSomething.prototype.boo = 'boo'; //构造函数原型下的属性
+
+        var Expmple1 = new doSomething()
+        var Expmple2 = new doSomething()
+        Expmple1.paper = 'people'
+        Expmple2.name = 'xinhua'
+
+        console.log(Expmple1, Expmple2)
+        /*另一个例子*/
+        function Person(first, last, age, gender, interests) {
+            // 属性与方法在这里定义。当然这里的也属于共有的，只是他们的<属性值>是各自独立的，“相对独立”
+            this.first = first;
+            this.last = last;
+            this.age = age;
+            this.gender = gender
+            this.interests = [...interests]
+        }
+        //这个在原型链上，任何词法变量都能通过原型链访问到这个属性，比如person1 or person2 “共有的”
+        Person.prototype.region = 'shanghai'
+
+        var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']) //独立的词法作用域
+        var person2 = new Person('Bod', 'lily', 18, 'Female', ['book', 'yoga']) //独立的词法作用域
+        person1.work = 'techer' //绝对独立的
+        person2.nationality = 'korae' //绝对独立的
+        console.log('====', person1.__proto__.region)
+
+        console.log('person1>>>>>>>>>', person1) // 
+        console.log('person2>>>>>>>>>', person2.valueOf()) //
+        console.log('__proto__>>>>>>>>>', person1.__proto__.__proto__) //
+    </script>
+</body>
+
+</html>
