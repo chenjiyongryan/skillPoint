@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OOP</title>
+    <style>
+        body{
+            font-family:monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h5>你不在，我也可以过的很好，但这不代表你不重要</h5>
+    <script>
+        /*
+        OOP思想：
+        
+        一、封装：函数封装
+        二、继承：
+            1、种类：
+            类继承 、拷贝继承 、原型继承 、Person.call(this,...)继承
+            2、继承原则：
+            任何您想要被继承的方法都应该定义在构造函数的prototype对象里，并且永远使用父类的prototype来创造子类的prototype，这样才不会打乱类继承结构。
+        三、多态：多种形态
+        
+        */
+        //  *********************构造函数，可以理解为calss类，
+        function Person(first, last, age, gender, interests) {
+            this.name = {
+                first,
+                last
+            };
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+            this.bio = function () {
+                alert(this.name.first + ' ' + this.name.last + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+            };
+            this.greeting = function () {
+                alert('Hi! I\'m ' + this.name.first + '.');
+            };
+        }
+        //挂载在构造器的原型下 任何被实例化的对象都具有这些方法和属性
+        Person.prototype.shake = function (){console.log('this is shake function under Person!')}
+        Person.prototype.jump = function (){console.log('this is jump function under Person!')}
+        Person.prototype.run = function (){console.log('this is run function  under Person!')}
+        //person1就是个实例对象 ，他通过new Person()得出来，而这个过程就叫实例化过程。实例对象person1被类Person实例化。
+        var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']) //独立的命名空间
+        var person2 = new Person() //独立的命名空间
+        console.log(person1, person2)
+
+        //  *********************子类
+        function Teacher(first, last, age, gender, interests, subject) {
+            //通过call来继承Person的方法和属性，但无法继承父类原型下的属性和方法，第一个参数必须是this，用来重新定义this指向
+            Person.call(this, first, last, age, gender, interests)
+            this.subject = subject;
+        }
+        //继承原型
+        Teacher.prototype = Object.create(Person.prototype) 
+        //改变构造器指向
+        Teacher.prototype.constructor = Teacher
+
+        //对继承到的方法进行改造，且不会影响父类的方法
+        Teacher.prototype.shake = function(){console.log('this is run function  under Teacher!')}
+
+        var t1 = new Teacher('ryan', 'chan', 27, 'male', ['book', 'english'])
+
+        t1.shake()
+        person1.shake()
+        console.log('Teacher.prototype：>>>>>>>>>', Teacher.prototype)
+/*——————————————————————————————————————————————分割线————————————————————————————————————————————————————————*/
+        //*********************无参数的简单继承
+        //父类
+        function Brick() {
+            this.width = 10;
+            this.height = 15;
+        }
+        //子类
+        function BlueGlassBrick(){
+            Brick.call(this)
+        }
+        var b1 = new BlueGlassBrick()
+        console.log(b1)//width:10 height:15
+
+        /**/
+        var p1 = new Object({ name: 'ryan', age: '27', handsome: true })
+        var p2 = Object.create(p1)
+        Object.prototype.move = function () { console.log('move') }
+        console.log(p2.__proto__)
+
+        //需要注意到的对象引用，改变形参的值同样是会改变内存里的指针
+        var quote = [1, 2, 3, 4]
+        fn1(quote)
+        function fn1(ags) {
+            ags[0] = 99
+        }
+        console.log(quote) // 99, 2, 3, 4]
+    </script>
+</body>
+
+</html>

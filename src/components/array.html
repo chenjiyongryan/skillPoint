@@ -24,6 +24,27 @@
         <p>array </p>
     </div>
     <script>
+        /*
+        数组的操作方法，先概览一遍
+        arr.some() //接收一个测试函数，只要有一个满足条件就返回true
+        arr.every() //接收一个测试函数，必须所有的条件满足才会返回true
+        arr.push() //数组末尾添加元素
+        arr.unshift() //数组头部添加元素
+        arr.shift() //删除数组头部第一个元素
+        arr.pop() //删除数组末尾元素
+        arr.map() //迭代，对数组元素进行操作并返回一个新数组
+        arr.forEach() //迭代，循环调用
+        arr.filter() //数组过滤
+        arr.fill() //填满和替换某一段的元素为同样的一个
+        arr.slice() //提取数组元素
+        arr.splice() //在指定位置删除和添加元素，会改变原始数组
+        arr.concat() //两个数组拼接在一起
+        arr.find() 查找并返回找到的第一个元素，相当于懒查找
+        arr.findIndex() //查找并返回找到的第一个元素的下标
+        arr.join() //将数组以指定的分隔符转为字符串
+        */
+
+
         //*******************替换某一段的数组。会改变原始数组，
         //arr.fill(value[, start[, end]])
         var arr1 = [1, 2, 3, 4, 5, 6];
@@ -77,8 +98,33 @@
         console.log(fruits.slice(1, 3))//['Orange', 'Lemon']
 
         //*************************array.shift() 删除数组的第一个元素，返回被删除的元素，会改变原始数组
-        var arr4 = ['a','b','c','d','e','f','g']
-        console.log(arr4.shift())        
+        var arr4 = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        console.log(arr4.shift())
+
+        //*************************array.pop() 删除数组的最后一个元素，返回被删除的元素，会改变原始数组
+        var arr5 = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        console.log('arr5>>>>', arr5.pop())
+        console.log(arr5)
+
+        //*************************arr.find() 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
+        var arr6 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'v']
+        let v = arr6.find(function (item, index, args) {
+            console.log(item, index, args)
+            return item == 'v'
+        })
+        console.log(v) // v
+        //*************************arr.findInfex() 方法返回数组中满足提供的测试函数的第一个元素的值。否则返回 undefined。
+        var arr7 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'v']
+        let cIndex = arr6.findIndex(function (item, index, args) {
+            console.log(item, index, args)
+            return item == 'c'
+        })
+        console.log(cIndex) //2
+        //************************* arr.push
+        arr8 = []
+        arr8.push(...[1, 2, 3])
+        console.log(arr8)
+
     </script>
 </body>
 
