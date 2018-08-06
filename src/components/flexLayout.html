@@ -1,0 +1,98 @@
+<html>
+
+<head>
+  <title>flex布局</title>
+  <style>
+    /*
+
+    基本概念：主轴，交叉轴，主轴起点，交叉轴起点，flex容器和item项
+
+    flex容器的属性有6个
+    · flex-direction 定义主轴的方向
+    · flex-wrap 定义如果一条轴线排不下，如何换行。
+    · flex-flow  是flex-direction属性和flex-wrap属性的简写形式
+    · justify-content 定义了项目在主轴上的对齐方式，也就是富裕的空间如何利用
+    · align-items 定义项目在-交叉轴-上如何对齐
+    · align-content
+    */
+
+    /* 通配符 * ， 这样就可以选择到页面上所有盒子了，当然这不是继承 */
+
+    * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      margin: 0;
+    }
+
+    .flex {
+      display: flex;
+      /* height: 100%; */
+      /*方向*/
+      flex-direction: column;
+      /*沿着主轴方向怎么排列，就是富裕空间怎么利用*/
+      justify-content: flex-start;
+      /*超出部分怎么换行*/
+      flex-wrap: wrap;
+      /* 定义item在交叉轴上怎么对齐 */
+      align-items: center;
+
+    }
+
+    .flex>div {
+      width: 90px;
+      height: 100px !important
+    }
+
+    .flexitem1 {
+
+      height: 100px;
+      width: 20px;
+      background: gold
+    }
+
+    .flexitem2 {
+      height: 150px;
+      background: salmon
+    }
+
+    .flexitem3 {
+      height: 50px;
+      background: sandybrown
+    }
+
+    .flexitem4 {
+      height: 110px;
+      background: seagreen
+    }
+
+    .flexitem5 {
+      height: 160px;
+      background: skyblue
+    }
+
+    .flexitem6 {
+      order: 1;
+      height: 90px;
+      background: pink
+    }
+  </style>
+</head>
+
+<body>
+  <!-- flex布局 -->
+  <div class="flex">
+    <div class="flexitem1">1</div>
+    <div class="flexitem2">2</div>
+    <div class="flexitem3">3</div>
+    <div class="flexitem4">4</div>
+    <div class="flexitem5">5</div>
+    <div class="flexitem6">6</div>
+  </div>
+
+</html>

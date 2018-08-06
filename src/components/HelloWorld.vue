@@ -93,7 +93,7 @@
 import string1 from './string'
 
 export default {
-  components:{string1},
+  components: { string1 },
   name: 'HelloWorld',
   data() {
     return {

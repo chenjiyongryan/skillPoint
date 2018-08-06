@@ -44,8 +44,12 @@
         var Expmple2 = new doSomething()
         Expmple1.paper = 'people'
         Expmple2.name = 'xinhua'
+<<<<<<< HEAD
+
+=======
  
         console.log('prototype>>>>', doSomething.prototype)
+>>>>>>> 281f02ac71323402fbc73897f8b303928dd02166
         console.log(Expmple1, Expmple2)
         /*另一个例子*/
         function Person(first, last, age, gender, interests) {
@@ -57,12 +61,13 @@
             this.interests = [...interests]
         }
         //这个在原型链上，任何词法变量都能通过原型链访问到这个属性，比如person1 or person2 “共有的”
-        Person.prototype.region = 'shanghai' 
+        Person.prototype.region = 'shanghai'
 
         var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']) //独立的词法作用域
         var person2 = new Person('Bod', 'lily', 18, 'Female', ['book', 'yoga']) //独立的词法作用域
         person1.work = 'techer' //绝对独立的
         person2.nationality = 'korae' //绝对独立的
+        console.log('====', person1.__proto__.region)
 
         console.log('person1>>>>>>>>>', person1) // 
         console.log('person2>>>>>>>>>', person2.valueOf()) //
