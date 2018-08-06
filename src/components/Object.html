@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>object</title>
+    <object data="" type=""></object>
+    <style>
+        body {
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h5>你不在，我也可以过的很好，但这不代表你不重要</h5>
+    <script>
+        //************************对象浅拷贝
+        //方法一 Object.assign(target, ...sources)相同的属性会被覆盖，sources不具有的会被保留
+        var obj1 = { a: 1, b: 2, c: 3, d: 4 }
+        var copy1 = Object.assign({ f: 1 }, obj1) //属性f会被保留
+        console.log('>>>>>>>>>>>>copy1', copy1)
+        //方法二
+        var obj2 = { ...obj1 }
+        console.log('>>>obj2', obj2)
+
+        //************************对象深拷贝可以用这个投机取巧的方法
+        let deepClone = JSON.parse(JSON.stringify(obj1))
+
+        //************************Object.entries()方法返回一个给定对象自身可枚举属性的键值对数组
+        const object1 = { foo: 'bar', baz: 1 };//每个键值对是一个数组，通常是2
+        console.log(Object.entries(object1))//[["foo", "bar"],["baz", 1]]
+        //转换为map类型，然而不知道有什么卵用
+        var obj3 = { foo: "bar", baz: 42 };
+        var map = new Map(Object.entries(obj3));
+        console.log(map); // map { foo: "bar", baz: 42 }
+
+        //************************冻结一个对象
+        //Object.freeze(obj)
+
+        //************************Object.is()
+        //不同于==对比，它不会进行隐式转换，另外在对比两个对象时，必须是同一个对象才会为true
+        console.log(Object.is(obj3,obj3))
+
+        //************************object.keys()方法会返回一个由一个给定对象的自身可枚举属性组成的数组
+        //，数组中属性名的排列顺序和使用 for...in 循环遍历该对象时返回的顺序一致 。
+        console.log(Object.keys({a:'y',b:'i',c:'g'}))//[a,b,c]
+        console.log(Object.keys(['a','b','c']))// [0,1,2]
+        console.log(Object.keys({a:'y',b:'i',c:'g',1:'e',88:'r',2:'e'}))// ["1", "2", "88", "a", "b", "c"]会自动排序
+
+        //************************Object.values() //获取对象的键值并返回一个数组，只获取最外面一层
+        console.log(Object.values({a:2,b:1,c:3}))// [2,1,3]
+        console.log(Object.values({a:1,b:2,c:[5,5,5],d:[6,6,6]})) // [1,2,[5,5,5],[6,6,6]]
+        console.log(Object.values({a:1,b:2,c:{f:1},d:{g:1}})) // [1,2,{},{}]
+
+        //************************obj.toString()方法
+        var obj4= new Object();
+        console.log(obj4.toString()); // returns [object Object]
+        console.log(Object.prototype.toString.call(null))
+        let a = 111e4
+        console.log()
+        console.log( a.toString())
+    </script>
+</body>
+
+</html>
