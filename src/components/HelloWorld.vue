@@ -93,7 +93,7 @@
 import string1 from './string'
 
 export default {
-  components:{string1},
+  components: { string1 },
   name: 'HelloWorld',
   data() {
     return {
@@ -199,38 +199,6 @@ export default {
     const order = [20, 18, 1, 'cheese', 'eggs', 'milk', 'bread']
     const [total, subtotal, tax, ...items] = order
     console.log(total, subtotal, tax, items) //20 18 1  ["cheese", "eggs", "milk", "bread"]
-
-    //*************************filter过滤器
-    //filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
-    const ages = [32, 33, 16, 40]
-    const newages = ages.filter((a, b, c) => {
-      //a数组里的每一项 b下标 c原数组本身
-      return a > 17
-    })
-    console.log(newages)
-    //*************************forEach()方法
-    const iPhones = [function() {}, function() {}, function() {}, function() {}]
-    iPhones.forEach((a, b, c) => {
-      //a数组里的每一项 b下标 c原数组本身  remember soap..soap..soap 0.0
-      a()
-    })
-
-    //*************************map操作数组方法
-    var data = [1, 2, 3, 4]
-    let newarr = data.map(item => item * item)
-    console.log(newarr) //1 4 9 16
-
-    //*************************some 和 every方法 ——> 都是JS中数组的迭代方法,返回布尔值
-    //every()是对数组中每一项运行给定函数，如果该函数对（每一项）返回true,则返回true。
-    //some()是对数组中每一项运行给定函数，如果该函数对（任一项）返回true，则返回true。
-    const nums = [1, 2, 3, 4, 5, 6]
-    const isY = nums.some((item, idx, arr) => {
-      return item === 6 //相当于是如果有其中一项===6就返回true
-    })
-    const isN = nums.every((item, idx, arr) => {
-      return item > 0 //相当于是所有item项逗大于0就返回true
-    })
-    console.log(isY, isN) //true true
 
     //*************************Ajax请求
     let xhr = new XMLHttpRequest()
