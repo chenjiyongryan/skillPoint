@@ -39,14 +39,16 @@
     }
 
     .flex {
+      /*块弹性盒子，这个父元素能独占一行*/
       display: flex;
+      /* display: inline-block;行内弹性盒子，这个父元素不能独占一行 */
       height: 100%;
       /*方向*/
       flex-direction: column;
       /*沿着主轴方向怎么排列，就是富裕空间怎么利用*/
       justify-content: space-between;
       /*超出部分怎么换行*/
-      /* flex-wrap: wrap; */
+      flex-wrap: wrap;
       /* 定义item在交叉轴上怎么对齐 */
       align-items: center;
     }

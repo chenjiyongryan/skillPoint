@@ -11,7 +11,6 @@
          */
 
         /* 通配符 * ， 这样就可以选择到页面上所有盒子了，当然这不是继承 */
-
         * {
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
@@ -112,6 +111,12 @@
             position: fixed;
             bottom: 0;
         }
+        .relative{position: relative;width: 200px;height: 200px;border: 1px solid red}
+        .relative >span{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
     </style>
 </head>
 
@@ -153,8 +158,10 @@
         <li>2</li>
         <li>3</li>
         <li>4</li>
-
     </p>
+    <div class="relative">
+        <span>this span</span>
+    </div>
     <!-- position为fiexd 相对于浏览器定位的 -->
     <footer>
         版权所有...1、被设置了position: fixed; 并且我不是一个快元素了，宽高默认由内容撑开，当然也可以给我设置宽高；2、如果你对footer或者header设定了position：fixed；要记得给他们腾出个地方来，而对于footer我就在body中设定了一个margin-bottom的值给它。著作权归作者所有。
