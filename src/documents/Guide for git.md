@@ -12,3 +12,9 @@
 - 查看本地分支 `git branch`
 - 查看远程分支 `git branch -a`
 - 切换分支 `git checkout [branckName]` 如 `git checkout develop`
+
+* 对比工作区和暂存区代码 `git diff`
+* 对比暂存区和版本库代码 `git diff --cached`
+* 对比工作区和版本库代码 `git diff master`
+* 从暂存区撤回工作区 `git reset HEAD [temp.vue]`
+* 让暂存区->版本区的代码覆盖工作区代码（如果暂存区没有则从版本区去找） `git checkout -- xxx.js`
