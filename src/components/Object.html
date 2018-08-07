@@ -40,26 +40,26 @@
 
         //************************Object.is()
         //不同于==对比，它不会进行隐式转换，另外在对比两个对象时，必须是同一个对象才会为true
-        console.log(Object.is(obj3,obj3))
+        console.log(Object.is(obj3, obj3))
 
         //************************object.keys()方法会返回一个由一个给定对象的自身可枚举属性组成的数组
         //，数组中属性名的排列顺序和使用 for...in 循环遍历该对象时返回的顺序一致 。
-        console.log(Object.keys({a:'y',b:'i',c:'g'}))//[a,b,c]
-        console.log(Object.keys(['a','b','c']))// [0,1,2]
-        console.log(Object.keys({a:'y',b:'i',c:'g',1:'e',88:'r',2:'e'}))// ["1", "2", "88", "a", "b", "c"]会自动排序
+        console.log(Object.keys({ a: 'y', b: 'i', c: 'g' }))//[a,b,c]
+        console.log(Object.keys(['a', 'b', 'c']))// [0,1,2]
+        console.log(Object.keys({ a: 'y', b: 'i', c: 'g', 1: 'e', 88: 'r', 2: 'e' }))// ["1", "2", "88", "a", "b", "c"]会自动排序
 
         //************************Object.values() //获取对象的键值并返回一个数组，只获取最外面一层
-        console.log(Object.values({a:2,b:1,c:3}))// [2,1,3]
-        console.log(Object.values({a:1,b:2,c:[5,5,5],d:[6,6,6]})) // [1,2,[5,5,5],[6,6,6]]
-        console.log(Object.values({a:1,b:2,c:{f:1},d:{g:1}})) // [1,2,{},{}]
+        console.log(Object.values({ a: 2, b: 1, c: 3 }))// [2,1,3]
+        console.log(Object.values({ a: 1, b: 2, c: [5, 5, 5], d: [6, 6, 6] })) // [1,2,[5,5,5],[6,6,6]]
+        console.log(Object.values({ a: 1, b: 2, c: { f: 1 }, d: { g: 1 } })) // [1,2,{},{}]
 
         //************************obj.toString()方法
-        var obj4= new Object();
+        var obj4 = new Object();
         console.log(obj4.toString()); // returns [object Object]
         console.log(Object.prototype.toString.call(null))
         let a = 111e4
         console.log()
-        console.log( a.toString())
+        console.log(a.toString())
     </script>
 </body>
 
