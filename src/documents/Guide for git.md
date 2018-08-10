@@ -1,7 +1,5 @@
 ## Git 使用方法
 
----
-
 - 下载/克隆一个项目使用命令 `git clone [url]` 回车
 - 设置项目作者使用命令 `git config --global user.name “chenxx”`
 - 查看项目作者使用命令 `git config --global user.name`
