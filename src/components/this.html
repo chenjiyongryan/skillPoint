@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+
+<body>
+    <a href="http://www.ruanyifeng.com/blog/2018/06/javascript-this.html">this 阮一峰</a>
+    <script>
+        //let 和 const 的一些区别
+
+
+        //*************************
+        function foo() { console.log(this.x) }
+        let obj = { foo: foo, x: 1 }
+        let x = 2 // let会是未定义
+        obj.foo() //1
+        foo()//2
+
+        //*************************
+        let age = '28'
+        function a() {
+            console.log(this.age)
+        }
+        a()//undefined
+
+        //*************************
+        let arr = []
+        //var是唯一的，for循环结束之后只保留最后一轮的值
+        for (var i = 0; i < 10; i++) {
+            arr[i] = function () {
+                console.log(i)
+            }
+        }
+        arr[6]()//10
+
+        let counter =[]
+        //js引擎没次都会记住let的值
+        for (let i = 0; i < 10; i++) {
+            counter[i] = function () {
+                console.log(i)
+            }
+        }
+        counter[6]()//6
+
+        
+    </script>
+</body>
+
+</html>

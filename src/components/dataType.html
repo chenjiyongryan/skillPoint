@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dataType</title>
+</head>
+
+<body>
+    <ul id="ul">
+
+        <!-- this is some nots -->
+    </ul>
+    <script>
+        //王宏君悦大厦
+        // "use strict" //严格模式的声明
+        /*
+        ES6有6种数据类型：
+            5种简单类型：String Boolean Number null Undefined
+            1种复杂类型：Object(包括array object / object object)
+            1.undefined是一个数据类型
+            2.null是一个空对象指针，所以typeof null 会输出 Object
+        */
+        //下面是一些undefined and null 的一些例子
+
+        //没有初始化的变量===undefined,当然，没有声明的变量也是undefined，来看
+        let a
+        console.log(typeof a)//undefined
+        console.log(typeof b)//undefined
+        console.log(null == undefined)//true
+        console.log(null === undefined)//false
+        console.log(typeof (null)) // Object
+
+        //Number js默认是10进制的字面量
+        console.log(067) // 前导0意味着是八进制表示法，当然，在strict严格模式下会报错
+        console.log(0x99f) //前导0x意味着是十六进制表示法
+        console.log(0.2 + 0.1 == 0.3) //false  0.2+0.1实际上等于0.0000000000000004 所以判断浮点数是相当不安全的
+
+        //String 字符串的值一旦创建，不可以被改变，虽然表面上看起来可以通过重新赋值并不会报错：
+        //把两个连接起来，创建一个新的，原来的则会被js销毁，虽然这个过程我们感觉不到
+        let s1 = 'that is '
+        s1 = s1 + 'some computers'
+        console.log(s1)//'that is some computers'
+        //number转字符串
+        var num = 10;
+        alert(num.toString());// "10"
+        alert(num.toString(2));// "1010"
+        alert(num.toString(8));// "12"
+        alert(num.toString(10));// "10"
+        alert(num.toString(16));// "a"
+        alert(12345 + '') //"12345" 这是一个巧妙的方法，记住它！
+
+
+
+
+
+    </script>
+</body>
+
+</html>

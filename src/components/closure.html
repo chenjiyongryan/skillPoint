@@ -100,6 +100,44 @@
         coun2.reduce()
         console.log(coun2.value()); /* -1 */
 
+        //*************闭包和变量：闭包只能取得函数中变量的最后一个值，比如这个变量被改变过了。
+        (function creattedFun1() {
+            var result = new Array()
+            for (var i = 0; i < 5; i++) {
+                result[i] = function () {
+                    return i
+                }
+            }
+            result[0]()//console.log => 5
+            result[1]()//console.log => 5
+
+        })()
+        //有一个方法能达到我们想要的实现，即不再是最后一个值
+        function creattedFun2() {
+            var result = new Array()
+            for (var i = 0; i < 5; i++) {
+                result[i] = function (num) {
+                    return function () {
+                        return num
+                    }
+                }(i)
+            }
+            console.log(result[2]())// => 2
+
+        }
+        creattedFun2()
+
+            //其实在es6中 把 var 换成let就可以实现我们想要的效果，let的话引擎会记住上一次的值
+            ; (function () {//题外话，自执行函数前记得加分号
+                var result = new Array()
+                for (let i = 0; i < 5; i++) {
+                    result[i] = function () {
+                        return i
+                    }
+                }
+                console.log(result[0]())//console.log => 0
+            })()
+
 
     </script>
 </body>

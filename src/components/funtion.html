@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>function</title>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>我是1</li>
+        <li>我是2</li>
+        <li>我是3</li>
+        <!-- this is some nots -->
+    </ul>
+    <script>
+        window.onload  =  function(){
+            //如果只是临时用来处理一些事情，就用自执行匿名函数，这样不会有函数引用
+            (function(){
+                console.log('自执行匿名函数')
+            })()
+            //不建议这样!
+            function someFun1(){
+                //doSomething
+            }
+            someFun1()
+            //不应该这样!
+            let someFun2 = function(){
+                //doSomething
+            }
+            someFun2()
+        }
+    </script>
+</body>
+
+</html>

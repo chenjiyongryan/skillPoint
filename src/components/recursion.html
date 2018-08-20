@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>recursion</title>
+</head>
+<body>
+<script>
+  function factorial (num){
+      if(num<=1){
+          return 1
+          console.log('这里是<=1') //这里永远进不来，现在还不知道为什么
+      }else{
+          //调用自身用arguments.callee比自身函数名安全，即便在factorial = null也仍然可以使用
+          //arguments.callee是一个指向正在执行的函数的指针
+          return num * arguments.callee(num-1) 
+      }
+  }
+
+  console.log(factorial(10))
+  var anotherFactorial = factorial;
+  factorial = null;
+  anotherFactorial(4)//  不会报错，似乎也不会执行什么
+
+  var f = (function v(){console.log('nnn')})
+  
+</script>
+</body>
+</html>
