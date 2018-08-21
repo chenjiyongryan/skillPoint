@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>boolean</title>
+</head>
+
+<body>
+  <ul id="ul">
+    <li>我是1</li>
+    <li>我是2</li>
+    <li>我是3</li>
+    <!-- this is some nots -->
+  </ul>
+  <script>
+    /*
+    布尔操作符有三个 !(非) &&(并且) ||(或者)
+    */
+    //一些例子
+    if (!true) alert('----')  //不会进来
+    if (0 && 1) alert('----') //不会进来
+    if (0 || 1) alert('----') //会进来
+
+    //*****************!(非) 取反 
+    console.log(!false) //true
+    console.log(!true)  //false
+    console.log(!!true)  //true
+    console.log(!!'blue')  //true 双取反可以模拟Boolean()方法将其转为布尔值
+
+    //*****************&&(并且) 
+    let boo4 = false && true; //false
+
+    let what = { a: 1 } && 123 // 123 
+
+
+    //*****************||(或者)
+    let boo3 = false || true; //true
+  </script>
+</body>
+
+</html>

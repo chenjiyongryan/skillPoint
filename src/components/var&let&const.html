@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>var</title>
+</head>
+
+<body>
+    <ul id="ul">
+        <li>1</li>
+    </ul>
+    <script>
+        window.onload = function () {
+            // *************************私有变量
+            function MyObject() {
+                var privateVar = 1;
+                function privateMethod() {
+                    console.log(privateVar)
+                }//公共方法
+                this.publicMethod = function () {
+                    privateVar++
+                    return privateMethod()
+                }
+            }
+            var person1 = new MyObject();
+            ; person1.publicMethod();
+            console.log(person1)
+
+        };
+
+        // *************************私有变量
+        ; (function () {
+            var privateVar = 10
+            function privateFun() {
+                return false
+            }
+            MyObject = function () { }
+            MyObject.prototype.publicMethod = function () {
+                privateVar++
+                return privateFun()
+            }
+
+        })()
+        console.log(MyObject)
+
+        //***************************let块级作用域
+        if (true) {
+            let age = '22'
+        }
+        //console.log(age) ReferenceError: age is not defined
+        for (let i = 0; i < 2; i++) {
+            //...
+        }
+        //console.log(i) ReferenceError: age is not defined
+
+        //***************************var
+        console.log(a);//undefined 预解析时没有赋值 没毛病老铁
+        var a = 10;
+
+        b = 10 //默认是全局变量
+        var b;  //忽略这个声明
+        console.log(b) //10
+
+    </script>
+</body>
+
+</html>
