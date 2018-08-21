@@ -21,11 +21,9 @@ export default {
     console.log(this.size14)
     //******************************词法作用域 */
     function foo(str) {
-      eval(str) // 欺骗词法 8080
-      console.log(b) // 2
+      eval(str) // 欺骗词法,只接收原始字符串作爲參數
+      console.log(qp) // 2
     }
-    var b = 2
-    foo('var b = 8080;console.log(b)')
 
     //*****************************字符串连接，比连接符+好用吧。。。str.concat()*/
     //语法str.concat(string2, string3[, ..., stringN])
@@ -82,6 +80,23 @@ export default {
     //******************************方法使用指定的分隔符字符串将一个String对象分割成字符串数组
     //语法str.split([separator[, limit]])
     console.log('12341234123412341234'.split('1')) //["", "234", "234", "234", "234", "234"]
+    //******************************转换为字符串类型toString()
+    // 1.如果被转换的类型是undefined或者null时,会报错,所以他不安全,
+
+    let num2 = 12345
+    console.log(12345 + '') //"12345" 这是一个巧妙的方法，记住它！！！
+    console.log(num2.toString()) //"12345"
+    // console.log(null.toString()) //报错!!!
+
+    //******************************转换为字符串类型的另一個方法String(),这个似乎比toString更安全!
+    console.log(String(null))
+    console.log(String(undefined))
+    console.log(String(123456))
+    //**************************** 用一元 +  - 转为Number类型*/
+    let str3 = '3.1'
+    let str4 = '4.1'
+    ;+str3 // 输出number类型的 3.1
+    ;-str4 // 输出number类型的 -4.1
   },
   methods: {
     makeSizer(size) {

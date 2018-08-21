@@ -15,6 +15,16 @@
 <body>
     <h5>你不在，我也可以过的很好，但这不代表你不重要</h5>
     <script>
+
+        /*
+        对象Object        
+        
+        //创建一个对象
+        1.new object() 
+        2.new Object //不传参可以省略括号
+        3. {} //实际的开发中一般是字面量表示法
+        
+        */
         //************************对象浅拷贝
         //方法一 Object.assign(target, ...sources)相同的属性会被覆盖，sources不具有的会被保留
         var obj1 = { a: 1, b: 2, c: 3, d: 4 }
@@ -60,6 +70,11 @@
         let a = 111e4
         console.log()
         console.log(a.toString())
+
+        //***********************toString()
+        let obj10 = { a: 'a', b: 'b' }
+        console.log(obj10.toString())
+        console.log(obj10.valueOf())
     </script>
 </body>
 

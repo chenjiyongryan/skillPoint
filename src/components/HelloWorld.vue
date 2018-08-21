@@ -156,7 +156,7 @@ export default {
     console.log('>>>>>>>>obj', obj)
 
     //*************************for in 迭代
-    const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 99]
+    const digits = ['a', 'b', 'c', 3, 4, 5, 6, 7, 8, 99]
     for (const index in digits) {
       //index是下标，索引，digits的index就能 取到数组里面的每一项了
       console.log(digits[index])

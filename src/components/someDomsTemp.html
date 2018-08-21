@@ -14,13 +14,46 @@
         <!-- this is some nots -->
     </ul>
     <script>
-        window.onload  =  function(){
+        window.onload = function () {
             // innerHtml和innerText的区别
             let oUl = document.getElementById('ul')
-            console.log('innerHTML>>>>',oUl.innerHTML)//打印ul标签下的所有节点
-            console.log('innerText>>>>',oUl.innerText)//只打印ul标签下的所有文本节点
+            console.log('innerHTML>>>>', oUl.innerHTML)//打印ul标签下的所有节点
+            console.log('innerText>>>>', oUl.innerText)//只打印ul标签下的所有文本节点
             oUl.innerText = 'I was change html' //子节点'<li>'被替换了
+
+            /*
+            一元操作符:
+                分前置和后置
+            */
+
+            //前置操作符:
+            let num1 = 1
+            console.log(++num1) //2 前置操作符在求值 以前 被改变
+            //后置操作符
+            let num2 = 1
+            console.log(num2++) //1 后置操作符在求值 以后 被改变
+            //这样会自己转化为number
+            let str1 = '1'
+            console.log(++str1) //输出字符串2
+            //一元加操作符
+            let str2 = '1.1'
+            let str3 = '1首歌'
+            let boo = false
+            console.log(+ str2) //1.1
+            console.log(+ str3) //NaN
+            console.log(+boo) //0
         }
+
+        //let***************************
+        if (true) {
+            let age = '22'
+        }
+        //console.log(age) ReferenceError: age is not defined
+        for (let i = 0; i < 2; i++) {
+            //...
+        }
+        //console.log(i) ReferenceError: age is not defined
+
     </script>
 </body>
 
