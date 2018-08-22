@@ -11,7 +11,23 @@
         <li>1</li>
     </ul>
     <script>
+        //全局变量
+        var pubVar = 'This is global variable'
         window.onload = function () {
+            console.log(window.pubVar)//This is global variable
+            //通常我们会省略window关键字
+            console.log(pubVar)//This is global variable
+
+            //**************************查询标识符,自下而下,现在自己作用域中找,如果找不到再往上找
+            var color = 'blue'
+            var size = '18cm'
+            function getColor() {
+                var color = 'red'  //先找到这个color 
+                console.log(color) // red
+                console.log(size)  // undefined ,在自己作用域中找到了size 但,size在打印之前还没有初始化所以undefined
+                var size = '20cm'  //先找到这个size 
+            }
+            getColor()
             // *************************私有变量
             function MyObject() {
                 var privateVar = 1;
