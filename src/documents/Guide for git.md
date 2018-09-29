@@ -18,3 +18,7 @@
 * 对比工作区和版本库代码 `git diff master`
 * 从暂存区撤回工作区 `git reset HEAD [temp.vue]`
 * 让暂存区->版本区的代码覆盖工作区代码（如果暂存区没有则从版本区去找） `git checkout -- xxx.js`
+* study git 
+* study js
+* study js
+* 
