@@ -7,7 +7,8 @@
 - 查看项目邮箱使用命令 `git config --global user.email`
 - 查看配置列表使用命令 `git config --list`
 - 查看提交日志，包括他人提交的 `git log`
-- 查看本地分支 `git branch`
+- 查看本地分支 `git branch` 
+- 添加一个分支 `git branch chenjiyong` 
 - 查看远程分支 `git branch -a`
 - 切换分支 `git checkout [branckName]` 如 `git checkout develop`
 - 直接拉某个远程分支的代码 `git origin [branckName]` 如 `git origin develop`
