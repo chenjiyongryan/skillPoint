@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>流程控制</title>
+</head>
+
+<body>
+    <ul id="ul">
+        <li></li>
+    </ul>
+    <script>
+        contorlFun()
+        function contorlFun() {
+            for (let i = 0; i < 5; i++) {
+                console.log(i)
+                if (i === 4) {
+                    break  // 跳出这个循环♻️，并继续执行for下面的代码
+                }
+            }
+            for (let i = 0; i < 5; i++) {
+                console.log(i)
+                if (i === 4) {
+                    return   // 退出这个函数
+                }
+            }
+            alert('其实我弹不出来了！')
+        }
+
+        strat:alert('123')
+
+    </script>
+</body>
+
+</html>

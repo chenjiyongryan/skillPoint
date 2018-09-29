@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>arithmetic</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 1.5em;
+        }
+
+        h2 {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>this is H1 tag</h1>
+    <div>
+        <p>promise </p>
+    </div>
+    <script>
+        
+//promise
+function test(resolve, reject) {
+    var timeOut = Math.random() * 2;
+    console.log('set timeout to: ' + timeOut + ' seconds.');
+    setTimeout(function () {
+        if (timeOut < 1) {
+            console.log('call resolve()...');
+            resolve('200 OK');
+        }
+        else {
+            console.log('call reject()...');
+            reject('timeout in ' + timeOut + ' seconds.');
+        }
+    }, timeOut * 1000);
+}
+var p1 = new Promise(test);
+var p2 = p1.then(function (result) {
+    console.log('成功：' + result);
+});
+var p3 = p2.catch(function (reason) {
+    console.log('失败：' + reason);
+});
+
+
+//********************promise
+function promiseCallback(resolve,reject){
+    //dosomething
+    resolve('成功！')//成功
+    reject('失败！')//失败
+}
+let promise = new Promise(promiseCallback)
+promise.then((result)=>{
+    //在promise里调用resolve()就会走这里
+    console.log(result)
+
+}).catch((result)=>{
+    //在promise里调用reject()就会走这里
+    console.log(result)
+})
+
+    </script>
+</body>
+
+</html>
